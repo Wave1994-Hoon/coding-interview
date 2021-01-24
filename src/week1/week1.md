@@ -45,5 +45,7 @@
         System.out.println(s3 == s4);  // false: 각자 본인의 메모리를 별도로 할당 받음 
         ```
     - '==' 연산자는 메모리 주소를 비교, String 값을 비교할 때는 equals() 사용
+    - 참고
+        - https://readystory.tistory.com/140
     
 

@@ -1,27 +1,47 @@
-## Week1 (21.01.25 월)
-#### 해쉬 테이블
-- 해시함수를 사용하여 변환한 값을 index로 삼아 key와 value를 저장하는 자료구조, 기본연산으로는 탐색, 삽입, 삭제가 있다.
-- channing
-    - 충돌이 발생했을 때 이를 동일한 버킷(Bucket)에 저장하는데 이를 연결리스트 형태로 저장하는 방법을 말한다
-    - 뒤에 연결함으로써 충돌을 처리
+## week2 (2021.01.25 월)
+#### StringBuilder 구현 분석
+- 구조
+    - 실질적인 구현은 추상 클래스인 `AbstractStringBuilder`에 되어있다.
     
-- Open Addressing
-    - 동일한 주소에 다른 데이터가 있을 경우 다른 주소도 이용할 수 있게 하는 기법이다.
-#### Array 와 가변 크기 배열
-- 배열형 리스트
-    - Vector
-        - 한순간에 오직 한 쓰레드에서만 접근 가능
-    - ArrayList
-        - 개념적인 크기가 조절하는 배열과 가장 가까움, 인덱스 가짐
-        - 가장 효율적인 리스트
-        - Vector 보다 성능에서 상대적 우위
-            - 동기화에 필요한 작업을 할 필요가 없으니
-        - 시간복잡도
-            - 추가 및 삭제: O(1), 최악의 경우 O(n)
-                - 평상시에는 여유롭게 공간을 가져가지만 그게 아닐 경우 elemenet를 추가 후 나머지 값을 붙여서 메모리에 재 할당 함, 혹은 중간에 추가할 경우
-            - 조회: O(1) -> Index로 조회하는 경우, O(n) -> contains로 조회하는 경우
-- 노드형 리스트
-    - LinkedList
-        - 시간복잡도
-            - 추가 및 삭제: O(1), 만약 리스트 중간에 추가(삭제)를 할 경우 O(n), 실질적으로는 어떤 노드가 어떤 값을 가지고 있는지 찾아야되니 O(n)
-            - 조회: O(N)
+<img width="656" alt="stringBuilderStructure" src="https://user-images.githubusercontent.com/60383031/105724767-8e642800-5f6b-11eb-9661-a82f14995587.png">
+      
+- 초기 생성
+    - 초기 생성 시 길이가 16인 배열 생성 (생성자 호출 시 )
+    - 구현 코 
+    ```java
+    /* StringBuilder*/
+    public StringBuilder() {
+        super(16);
+    }
+    
+    /* AbstractStringBuilder */
+    AbstractStringBuilder(int capacity) {
+        value = new char[capacity];
+    }
+    ```
+  
+- 배열 크기 증가 
+    - append, insert 같은 함수 호출 시 배열이 이미 꽉 차있다면 `ensureCapacity` 메서드를 호출 후 조건에 부합하면 `ensureCapacityInternal` 호출
+    - minimumCapacity - value.length > 0 조건에 부합하면 newArray(이전 배열 크기 * 2) 생성 후 이전 배열 복사
+        - value = Arrays.copyOf(value, newCapacity(minimumCapacity));
+        - 구현 코드
+            ```java
+            public void ensureCapacity(int minimumCapacity) {
+                if (minimumCapacity > 0)
+                    ensureCapacityInternal(minimumCapacity);
+            }
+          
+            private void ensureCapacityInternal(int minimumCapacity) {
+                // overflow-conscious code
+                if (minimumCapacity - value.length > 0) {
+                    value = Arrays.copyOf(value,
+                    newCapacity(minimumCapacity));
+                }
+            }
+            ```
+          
+    - 맥스 사이즈
+        - private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
+        - 참고
+            - ibm.com/developerworks/java/library/j-codetoheap/index.html
+            - https://stackoverflow.com/questions/35756277/why-the-maximum-array-size-of-arraylist-is-integer-max-value-8

@@ -43,5 +43,4 @@ public class LinkedListNode {
         }
         System.out.println(startNode.data);
     }
-
 }

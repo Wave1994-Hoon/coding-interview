@@ -43,4 +43,50 @@ public class LinkedListNode {
         }
         System.out.println(startNode.data);
     }
+
+    /* 단방향 링크드 리스트 중복 제거 */
+    void removeDuplicated() {
+        Node start = header;
+        while (start.next != null) {
+            Node runner = start;
+            while (runner.next != null) {
+                if (start.data == runner.next.data) {
+                    runner.next = runner.next.next;
+                } else {
+                    runner = runner.next;
+                }
+            }
+            start = start.next;
+        }
+    }
+
+    /* 단방향 리스트, 뒤에서 k 번째 노드 찾기 */
+    Node searchKthFromLastNode(Node first, int k) {
+        Node start = first;
+        int total = 1;
+        /* count total size */
+        while (start.next != null) {
+            total ++;
+            start = start.next;
+        }
+        start = first;
+
+        for (int i = 0; i < total - k + 1; i++) {
+             start = start.next;
+        }
+        return start;
+    }
+
+    /* 단방향 리스트, 재귀를 사용하여 뒤에서 k 번째 노드 찾기 */
+    Integer searchKthFromLastNodeWithRecursive(Node target, int k) {
+        if (target == null) {
+            return 0;
+        }
+
+        int count = searchKthFromLastNodeWithRecursive(target.next, k) + 1;
+        if (count == k) {
+            System.out.println(k);
+        }
+
+    }
 }

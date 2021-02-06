@@ -78,15 +78,26 @@ public class LinkedListNode {
     }
 
     /* 단방향 리스트, 재귀를 사용하여 뒤에서 k 번째 노드 찾기 */
-    Integer searchKthFromLastNodeWithRecursive(Node target, int k) {
-        if (target == null) {
-            return 0;
-        }
+//    Integer searchKthFromLastNodeWithRecursive(Node target, int k) {
+//        if (target == null) {
+//            return 0;
+//        }
+//
+//        int count = searchKthFromLastNodeWithRecursive(target.next, k) + 1;
+//        if (count == k) {
+//            System.out.println(k);
+//        }
+//    }
 
-        int count = searchKthFromLastNodeWithRecursive(target.next, k) + 1;
-        if (count == k) {
-            System.out.println(k);
+    /* 중간 노드 삭제, 단 중간 노드는 앞에 노드 정보 모름 */
+    private static boolean deleteSomethingNode(Node targetNode) {
+        if (targetNode == null || targetNode.next == null) {
+            return false;
         }
-
+        Node nextNode = targetNode.next;
+        nextNode.data = targetNode.data;
+        nextNode.next = targetNode.next.next;
+        return true;
     }
+
 }

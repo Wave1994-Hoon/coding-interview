@@ -7,4 +7,6 @@
 
 ### 정리
 - [1주차 정리](https://github.com/Wave1994-Hoon/coding-interview/blob/master/src/week1/week1.md)
-- [2주차 정리](https://github.com/Wave1994-Hoon/coding-interview/blob/master/src/week2/week2.md) 
+- [2주차 정리](https://github.com/Wave1994-Hoon/coding-interview/blob/master/src/week2/week2.md)
+- [3주차 정리](https://github.com/Wave1994-Hoon/coding-interview/blob/master/src/week3/week3.md)
+

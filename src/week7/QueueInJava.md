@@ -1,5 +1,4 @@
-## Queue In Java 분석
-***
+## Queue in Java 분석
 - 구조
 
     <img width="656" src="https://user-images.githubusercontent.com/60383031/111064481-8c443180-84f7-11eb-9063-6e23241ce37a.png">

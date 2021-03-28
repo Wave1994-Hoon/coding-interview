@@ -12,9 +12,11 @@
     - 자바의 링크드 리스트는 더블 링크드 리스트임
         - List / Deque 인터페이스 상속 받음
         - 동기화 보장 x
-            - 관련 자료
+        - 관련 자료
+            - 동기화
                 - https://madplay.github.io/post/java-collection-synchronize
-    
+            - 더블 링크드 리스트
+                - https://opentutorials.org/module/1335/8940
 
 - 주요 변수
 

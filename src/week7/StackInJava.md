@@ -3,7 +3,7 @@
   
     <img width="656" src="https://user-images.githubusercontent.com/60383031/111065453-29ee2f80-84fd-11eb-929e-2a8bc5cda28d.png">
     
-    - 자바에서 스태은 Vector 클래스를 상속 받음
+    - 자바에서 스택은 Vector 클래스를 상속 받음
     - Vector ?
         - 자바에서 제공하는 리스트 자료구조
         - 한순간에 오직 한 쓰레드에서만 접근 가능

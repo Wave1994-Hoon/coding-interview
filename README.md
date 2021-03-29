@@ -12,3 +12,5 @@
 - [3주차 정리](https://github.com/Wave1994-Hoon/coding-interview/blob/master/src/week3/week3.md)
 - [4주차 정리](https://github.com/Wave1994-Hoon/coding-interview/blob/master/src/week4/week4.md)
 - [5주차 정리](https://github.com/Wave1994-Hoon/coding-interview/blob/master/src/week5/week5.md)
+- [6주차 정리 WIP](https://github.com/Wave1994-Hoon/coding-interview/tree/master/src/week7)
+- [7주차 정리](https://github.com/Wave1994-Hoon/coding-interview/tree/master/src/week7)

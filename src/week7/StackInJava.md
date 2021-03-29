@@ -20,6 +20,20 @@
         - It extends class Vector with five operations that allow a vector to be treated as a stack
     - Deque 사용 권장
         - A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations
+        - 이유
+            - 구조적 관점
+                - Stack is a class, Deque is an interface.
+                - Only one class can be extended, whereas any number of interfaces can be implemented by a single class in Java (multiple inheritance of type).
+                - Using the Deque interface `removes the dependency` on the concrete Stack class
+            - 기능적 관점
+                - Stack extends the Vector class, `which allows you to access element by index`.
+              
+            - 성능적 관점
+                - The Vector class that Stack extends is basically the `"thread-safe"` version of an ArrayList.
+                - `The synchronizations` can potentially cause a significant performance hit to your application
+
+            - 관련 url = https://stackoverflow.com/questions/12524826/why-should-i-use-deque-over-stack
+            
     
 
         
